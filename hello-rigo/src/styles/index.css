@@ -20,7 +20,7 @@
 .background{
     background: black;
 }
-.card-text{
+.textCustom{
     overflow-wrap: break-word;
 }
 

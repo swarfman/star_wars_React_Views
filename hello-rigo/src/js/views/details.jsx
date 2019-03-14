@@ -51,11 +51,11 @@ export class Details extends React.Component {
 		)
 			.then(res => res.json())
 			.then(response => {
-				console.log("Success:", typeof response);
-				console.log(response);
+				//console.log("Success:", typeof response);
+				//	console.log(response);
 				if (typeof response === typeof {}) {
 					this.setState({ results: response });
-					console.log(this.state);
+					//console.log(this.state);
 				} else {
 					this.setState({ results: [] });
 				}
@@ -79,7 +79,7 @@ export class Details extends React.Component {
 	};
 
 	render() {
-		console.log(this.props);
+		//console.log(this.props);
 		return (
 			<div>
 				<div className="row">

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { Context } from "../store/appContext.jsx";
 import "../../styles/home.css";
 
 export const Card = props => {
@@ -20,11 +21,27 @@ export const Card = props => {
 					<br />
 					Eye-Color: {props.eye_color}
 				</p>
-				<Link to={`/details/${props.index + 1}`}>
-					<a href="#" className="btn btn-primary">
-						Learn more!
-					</a>
-				</Link>
+				<div className="d-flex justify-content-between">
+					<Link to={`/details/${props.index + 1}`}>
+						<a href="#" className="btn btn-primary">
+							Learn more!
+						</a>
+					</Link>
+					<Context.Consumer>
+						{({ actions }) => {
+							return (
+								<a
+									href="#"
+									className="btn btn-success"
+									onClick={() =>
+										actions.addToFavorites(props.name)
+									}>
+									Add to Favorites!
+								</a>
+							);
+						}}
+					</Context.Consumer>
+				</div>
 			</div>
 		</div>
 	);

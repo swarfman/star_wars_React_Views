@@ -52,7 +52,7 @@ export class Home extends React.Component {
 			.then(res => res.json())
 			.then(response => {
 				console.log("Success:", typeof response);
-				console.log(response);
+				//console.log(response);
 				if (typeof response === typeof {}) {
 					this.setState({ results: response.results });
 				} else {
@@ -66,7 +66,7 @@ export class Home extends React.Component {
 			.then(res => res.json())
 			.then(response => {
 				console.log("Success:", typeof response);
-				console.log(response);
+				//console.log(response);
 				if (typeof response === typeof {}) {
 					this.setState({ planets: response.results });
 				} else {
@@ -103,6 +103,7 @@ export class Home extends React.Component {
 						{this.state.planets.map((elem, index) => {
 							return (
 								<PlanetCard
+									className="textCustom"
 									key={index}
 									name={elem.name}
 									population={elem.population}

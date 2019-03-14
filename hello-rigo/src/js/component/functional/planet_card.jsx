@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { Context } from "../../store/appContext.jsx";
 import "../../../styles/home.css";
 
 export const PlanetCard = props => {
@@ -13,7 +14,7 @@ export const PlanetCard = props => {
 			/>
 			<div className="card-body">
 				<h5 className="card-title">{props.name}</h5>
-				<p className="card-text">
+				<p className="card-text textCustom">
 					Population: {props.population}
 					<br />
 					Terrain: {props.terrain}
@@ -23,6 +24,20 @@ export const PlanetCard = props => {
 						Learn more!
 					</a>
 				</Link>
+				<Context.Consumer>
+					{({ actions }) => {
+						return (
+							<a
+								href="#"
+								className="btn btn-success"
+								onClick={() =>
+									actions.addToFavorites(props.name)
+								}>
+								Add to Favorites!
+							</a>
+						);
+					}}
+				</Context.Consumer>
 			</div>
 		</div>
 	);
